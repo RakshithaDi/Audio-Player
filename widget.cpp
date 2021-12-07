@@ -5,7 +5,7 @@
 #include <string>
 
 using std::to_string;
-using std::string;
+using std::string;      //convert int to string
 
 
 Widget::Widget(QWidget *parent) :
@@ -32,7 +32,7 @@ Widget::Widget(QWidget *parent) :
     m_player->setVolume(50);
     //m_playlist->setPlaybackMode(QMediaPlaylist::Loop);
 
-
+    //slider progress
     connect(m_player, &QMediaPlayer::durationChanged, ui->slider, &QSlider::setMaximum);
     connect(m_player, &QMediaPlayer::positionChanged, ui->slider, &QSlider::setValue);
 
@@ -47,11 +47,12 @@ Widget::Widget(QWidget *parent) :
         m_playlist->setCurrentIndex(index.row());
     });
 
-
+    //now playing song
     connect(m_playlist, &QMediaPlaylist::currentIndexChanged, [this](int index){
         ui->currentsong->setText("Now Playing "+m_playListModel->data(m_playListModel->index(index, 0)).toString());
     });
 
+    //progress bar
     connect(m_player, &QMediaPlayer::durationChanged, ui->progressbar, &QProgressBar::setMaximum);
     connect(m_player, &QMediaPlayer::positionChanged, ui->progressbar, &QProgressBar::setValue);
 
@@ -66,6 +67,7 @@ Widget::~Widget()
 }
 
 
+//converting duratin time
 void Widget::SetTimeLabel()
 {
     int seconds = static_cast<int>(m_player->duration()/1000);
@@ -98,6 +100,8 @@ void Widget::SetTimeLabel()
 
 }
 
+
+//add audio files to list
 void Widget::on_btn_add_clicked()
 {
 
@@ -117,7 +121,7 @@ void Widget::on_btn_add_clicked()
 }
 
 
-
+//sound mute button
 void Widget::on_mute_clicked()
 {
     if(ui->mute->text() == "Mute"){
@@ -131,7 +135,7 @@ void Widget::on_mute_clicked()
     }
 }
 
-
+//volume change bar
 void Widget::on_volume_valueChanged(int value)
 {
 
@@ -139,6 +143,7 @@ void Widget::on_volume_valueChanged(int value)
 }
 
 
+//change slider value according to song
 void Widget::on_slider_valueChanged(int value)
 {
      qInfo() << "position is " << value ;
@@ -147,6 +152,7 @@ void Widget::on_slider_valueChanged(int value)
 }
 
 
+//song playback speed change
 void Widget::on_comboBox_activated(int rate)
 {
     qreal nowrate = 0;
