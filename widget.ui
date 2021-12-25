@@ -6,15 +6,39 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>611</width>
+    <width>609</width>
     <height>473</height>
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>609</width>
+    <height>473</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>609</width>
+    <height>473</height>
+   </size>
+  </property>
+  <property name="sizeIncrement">
+   <size>
+    <width>609</width>
+    <height>473</height>
+   </size>
+  </property>
+  <property name="baseSize">
+   <size>
+    <width>609</width>
+    <height>473</height>
+   </size>
   </property>
   <property name="font">
    <font>
@@ -27,6 +51,10 @@
   </property>
   <property name="windowTitle">
    <string>Audio Player</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="buttons.qrc">
+    <normaloff>:/buttons/imgbin-windows-media-player-computer-icons-play-button-CfT2ARWqAFEFtREsEJ01PPBd1.jpg</normaloff>:/buttons/imgbin-windows-media-player-computer-icons-play-button-CfT2ARWqAFEFtREsEJ01PPBd1.jpg</iconset>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
